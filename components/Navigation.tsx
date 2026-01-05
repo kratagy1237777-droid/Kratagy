@@ -16,56 +16,51 @@ const Navigation: React.FC<NavigationProps> = ({ currentView, setView }) => {
             className="flex items-center cursor-pointer group"
             onClick={() => setView(PageView.HOME)}
           >
-            <div className="w-10 h-10 bg-sky-900 rounded-lg flex items-center justify-center mr-3 group-hover:scale-110 transition-transform">
-              <span className="text-white font-bold text-xl">L</span>
+            <div className="h-12 w-auto mr-3 group-hover:scale-105 transition-transform duration-300">
+              <img src="logo.png" alt="London Dental Centre Logo" className="h-full w-auto object-contain" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-slate-900 tracking-tight leading-none">LONDON DENTAL</h1>
-              <span className="text-xs uppercase tracking-[0.2em] text-sky-600 font-semibold">Excellence & Care</span>
+              <h1 className="text-xl font-black text-slate-900 tracking-tight leading-none uppercase">LONDON DENTAL</h1>
+              <span className="text-[10px] uppercase tracking-[0.2em] text-brand font-black">Centre of Excellence</span>
             </div>
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
             <button 
               onClick={() => setView(PageView.HOME)}
-              className={`text-sm font-semibold transition-colors ${currentView === PageView.HOME ? 'text-sky-700' : 'text-slate-600 hover:text-sky-600'}`}
+              className={`text-sm font-bold transition-colors uppercase tracking-widest ${currentView === PageView.HOME ? 'text-brand' : 'text-slate-600 hover:text-brand'}`}
             >
               Home
             </button>
             <button 
               onClick={() => setView(PageView.TREATMENTS)}
-              className={`text-sm font-semibold transition-colors ${currentView === PageView.TREATMENTS ? 'text-sky-700' : 'text-slate-600 hover:text-sky-600'}`}
+              className={`text-sm font-bold transition-colors uppercase tracking-widest ${currentView === PageView.TREATMENTS ? 'text-brand' : 'text-slate-600 hover:text-brand'}`}
             >
               Treatments
             </button>
             <button 
               onClick={() => setView(PageView.ABOUT)}
-              className={`text-sm font-semibold transition-colors ${currentView === PageView.ABOUT ? 'text-sky-700' : 'text-slate-600 hover:text-sky-600'}`}
+              className={`text-sm font-bold transition-colors uppercase tracking-widest ${currentView === PageView.ABOUT ? 'text-brand' : 'text-slate-600 hover:text-brand'}`}
             >
               About
             </button>
             <button 
               onClick={() => setView(PageView.PRICES)}
-              className={`text-sm font-semibold transition-colors ${currentView === PageView.PRICES ? 'text-sky-700' : 'text-slate-600 hover:text-sky-600'}`}
+              className={`text-sm font-bold transition-colors uppercase tracking-widest ${currentView === PageView.PRICES ? 'text-brand' : 'text-slate-600 hover:text-brand'}`}
             >
               Prices
             </button>
             <button 
               onClick={() => setView(PageView.CONTACT)}
-              className="bg-sky-700 text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-sky-800 transition-all shadow-md hover:shadow-lg active:scale-95"
+              className="bg-brand text-white px-8 py-3 rounded-full text-sm font-bold hover:bg-brand-dark transition-all shadow-lg shadow-brand/20 active:scale-95"
             >
-              Book Online
+              Book Now
             </button>
           </div>
           
-          <div className="md:hidden">
-            <button 
-               onClick={() => setView(PageView.BLUEPRINT)}
-               className="text-sky-700 text-sm font-bold border border-sky-700 px-3 py-1 rounded"
-            >
-              Specs
-            </button>
-          </div>
+          <button className="md:hidden bg-brand text-white p-2 rounded-lg" onClick={() => setView(PageView.CONTACT)}>
+            <span className="text-xs font-bold uppercase tracking-widest px-2">Book</span>
+          </button>
         </div>
       </div>
     </nav>

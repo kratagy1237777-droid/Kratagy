@@ -8,70 +8,67 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = ({ setView }) => {
   return (
-    <footer className="bg-slate-900 text-slate-400 pt-16 pb-8 border-t border-slate-800">
+    <footer className="bg-slate-950 text-slate-400 pt-24 pb-12 border-t border-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-          <div className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+          <div className="space-y-8 col-span-1 md:col-span-1">
             <div className="flex items-center">
-              <div className="w-8 h-8 bg-sky-600 rounded flex items-center justify-center mr-2">
-                <span className="text-white font-bold">L</span>
+              <div className="h-16 w-auto bg-white p-2 rounded-2xl flex items-center justify-center mr-4">
+                <img src="logo.png" alt="London Dental Centre Footer" className="h-full w-auto object-contain" />
               </div>
-              <h3 className="text-white font-bold tracking-tight">LONDON DENTAL</h3>
             </div>
-            <p className="text-sm leading-relaxed">
-              Providing world-class dentistry in the heart of London. Our practice is dedicated to excellence, innovation, and patient-centered care.
+            <p className="text-sm leading-relaxed font-medium italic opacity-80">
+              "Defining the standard for dental care in London. Where clinical precision meets patient comfort."
             </p>
-            <div className="flex space-x-4">
-              <div className="w-8 h-8 rounded-full bg-slate-800 hover:bg-sky-600 transition-colors cursor-pointer"></div>
-              <div className="w-8 h-8 rounded-full bg-slate-800 hover:bg-sky-600 transition-colors cursor-pointer"></div>
-              <div className="w-8 h-8 rounded-full bg-slate-800 hover:bg-sky-600 transition-colors cursor-pointer"></div>
+            <div className="flex space-x-6">
+              {['FB', 'IG', 'LI'].map(social => (
+                <div key={social} className="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center font-black text-xs hover:border-brand hover:text-brand transition-all cursor-pointer">
+                  {social}
+                </div>
+              ))}
             </div>
           </div>
           
           <div>
-            <h4 className="text-white font-bold mb-6 text-sm uppercase tracking-wider">Treatments</h4>
-            <ul className="space-y-4 text-sm">
-              <li><button onClick={() => setView(PageView.TREATMENTS)} className="hover:text-sky-400 transition-colors">Invisalign</button></li>
-              <li><button onClick={() => setView(PageView.TREATMENTS)} className="hover:text-sky-400 transition-colors">Dental Implants</button></li>
-              <li><button onClick={() => setView(PageView.TREATMENTS)} className="hover:text-sky-400 transition-colors">Teeth Whitening</button></li>
-              <li><button onClick={() => setView(PageView.TREATMENTS)} className="hover:text-sky-400 transition-colors">Veneers</button></li>
-              <li><button onClick={() => setView(PageView.TREATMENTS)} className="hover:text-sky-400 transition-colors">Dental Hygiene</button></li>
+            <h4 className="text-white font-black mb-8 text-xs uppercase tracking-[0.2em] text-brand">Treatments</h4>
+            <ul className="space-y-4 text-sm font-bold">
+              <li><button onClick={() => setView(PageView.TREATMENTS)} className="hover:text-brand transition-colors">Invisalign®</button></li>
+              <li><button onClick={() => setView(PageView.TREATMENTS)} className="hover:text-brand transition-colors">Dental Implants</button></li>
+              <li><button onClick={() => setView(PageView.TREATMENTS)} className="hover:text-brand transition-colors">Teeth Whitening</button></li>
+              <li><button onClick={() => setView(PageView.TREATMENTS)} className="hover:text-brand transition-colors">Veneers</button></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-white font-bold mb-6 text-sm uppercase tracking-wider">Patients</h4>
-            <ul className="space-y-4 text-sm">
-              <li><button onClick={() => setView(PageView.ABOUT)} className="hover:text-sky-400 transition-colors">Our Team</button></li>
-              <li><button onClick={() => setView(PageView.PRICES)} className="hover:text-sky-400 transition-colors">Fees & Finance</button></li>
-              <li><button onClick={() => setView(PageView.HOME)} className="hover:text-sky-400 transition-colors">Case Studies</button></li>
-              <li><button onClick={() => setView(PageView.CONTACT)} className="hover:text-sky-400 transition-colors">Emergency Dentist</button></li>
-              <li><button onClick={() => setView(PageView.HOME)} className="hover:text-sky-400 transition-colors">FAQs</button></li>
+            <h4 className="text-white font-black mb-8 text-xs uppercase tracking-[0.2em] text-brand">Patients</h4>
+            <ul className="space-y-4 text-sm font-bold">
+              <li><button onClick={() => setView(PageView.ABOUT)} className="hover:text-brand transition-colors">Our Team</button></li>
+              <li><button onClick={() => setView(PageView.PRICES)} className="hover:text-brand transition-colors">Fees & Finance</button></li>
+              <li><button onClick={() => setView(PageView.CONTACT)} className="hover:text-brand transition-colors">Emergency Line</button></li>
             </ul>
           </div>
 
-          <div>
-            <h4 className="text-white font-bold mb-6 text-sm uppercase tracking-wider">Find Us</h4>
+          <div className="bg-slate-900 p-8 rounded-[2.5rem] border border-slate-800">
+            <h4 className="text-white font-black mb-6 text-xs uppercase tracking-[0.2em] text-brand">Visit Us</h4>
             <div className="space-y-4 text-sm">
-              <p>123 Harley Street,<br />London, W1G 6AF</p>
-              <p className="text-white font-bold">020 7123 4567</p>
-              <p>Mon - Fri: 8am - 7pm<br />Sat: 9am - 4pm</p>
+              <p className="font-medium text-slate-300">123 Harley Street,<br />London, W1G 6AF</p>
+              <p className="text-white font-black text-lg">020 7123 4567</p>
               <button 
                 onClick={() => setView(PageView.CONTACT)}
-                className="w-full bg-sky-600 text-white py-3 rounded font-bold hover:bg-sky-700 transition-all"
+                className="w-full bg-brand text-white py-4 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-brand-dark transition-all shadow-xl shadow-brand/10"
               >
-                Book Appointment
+                Secure Online Booking
               </button>
             </div>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-xs">
-          <p>&copy; 2024 London Dental Excellence. GDC Registered. Care Quality Commission Regulated.</p>
-          <div className="flex space-x-6">
-            <a href="#" className="hover:text-white">Privacy Policy</a>
-            <a href="#" className="hover:text-white">GDPR Compliance</a>
-            <a href="#" className="hover:text-white">NHS Choices</a>
+        <div className="pt-8 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-[10px] font-black uppercase tracking-widest opacity-40">
+          <p>&copy; 2024 London Dental Excellence. GDC Registered. CQC Outstanding.</p>
+          <div className="flex space-x-8">
+            <a href="#" className="hover:text-brand transition-colors">Privacy</a>
+            <a href="#" className="hover:text-brand transition-colors">GDPR</a>
+            <a href="#" className="hover:text-brand transition-colors">NHS</a>
           </div>
         </div>
       </div>
