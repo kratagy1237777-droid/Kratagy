@@ -56,10 +56,10 @@ const Navigation = ({ currentView, setView }: { currentView: PageView, setView: 
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
         <div className="flex items-center cursor-pointer group" onClick={() => setView(PageView.HOME)}>
           <div className="h-14 w-auto flex items-center justify-center mr-3 group-hover:scale-105 transition-transform">
-            <img src="logo.png" alt="London Dental Centre Logo" className="h-full w-auto object-contain" />
+            <img src="logo.png" alt="The London Dental Centre Logo" className="h-full w-auto object-contain" />
           </div>
           <div>
-            <h1 className={`text-xl font-black leading-none tracking-tight ${scrolled ? 'text-slate-900' : 'text-white'}`}>LONDON DENTAL</h1>
+            <h1 className={`text-xl font-black leading-none tracking-tight ${scrolled ? 'text-slate-900' : 'text-white'}`}>THE LONDON DENTAL</h1>
             <p className="text-[10px] text-brand font-black tracking-[0.2em] uppercase">Centre of Excellence</p>
           </div>
         </div>
@@ -103,8 +103,9 @@ const ContactSection = () => {
     e.preventDefault();
     setIsLoading(true);
     
-    const whatsappNumber = '8237362112';
-    const textMessage = `*New Appointment Request - London Dental Centre*%0A%0A` +
+    // WhatsApp redirect to 020 7123 4567 (UK Country Code 44)
+    const whatsappNumber = '442071234567';
+    const textMessage = `*New Appointment Request - The London Dental Centre*%0A%0A` +
       `*Patient Name:* ${formData.name}%0A` +
       `*Phone Number:* ${formData.phone}%0A` +
       `*Treatment:* ${formData.treatment}%0A%0A` +
@@ -128,19 +129,26 @@ const ContactSection = () => {
             <h2 className="text-4xl md:text-6xl font-black mb-8 leading-tight">Your New Smile <br/> <span className="text-brand font-light italic">Starts Today.</span></h2>
             <div className="space-y-10">
               <div className="flex items-start">
-                <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center mr-6 text-2xl border border-white/10">📞</div>
+                <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center mr-6 text-2xl border border-white/10 text-brand">📞</div>
                 <div>
                   <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Direct Line</p>
                   <p className="text-2xl font-bold">020 7123 4567</p>
-                  <p className="text-sm text-brand mt-1">Available 24/7 for Emergencies</p>
+                  <p className="text-sm text-brand mt-1">Available for Emergencies & Bookings</p>
                 </div>
               </div>
               <div className="flex items-start">
-                <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center mr-6 text-2xl border border-white/10">📍</div>
+                <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center mr-6 text-2xl border border-white/10 text-brand">📍</div>
                 <div>
                   <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Our Location</p>
-                  <p className="text-2xl font-bold">123 Harley Street, London</p>
-                  <p className="text-sm text-slate-400 mt-1">Tube: Regents Park / Great Portland Street</p>
+                  <p className="text-2xl font-bold">109 Lever Street, London, EC1V 3RQ</p>
+                  <p className="text-sm text-slate-400 mt-1">Centre of Clinical Excellence</p>
+                </div>
+              </div>
+              <div className="flex items-start">
+                <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center mr-6 text-2xl border border-white/10 text-brand">✉️</div>
+                <div>
+                  <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Email Us</p>
+                  <p className="text-lg font-bold">info@thelondondentalcentre.co.uk</p>
                 </div>
               </div>
             </div>
@@ -149,7 +157,7 @@ const ContactSection = () => {
           <div className="bg-white rounded-[3rem] p-10 md:p-14 text-slate-900 shadow-2xl">
             {!isSubmitted ? (
               <>
-                <h3 className="text-2xl font-bold mb-2">Secure Appointment</h3>
+                <h3 className="text-2xl font-bold mb-2 uppercase tracking-tighter">Secure Appointment</h3>
                 <p className="text-slate-500 text-sm mb-8 italic leading-relaxed">Transmits your request directly to our desk via WhatsApp.</p>
                 
                 <form className="space-y-6" onSubmit={handleSubmit}>
@@ -199,13 +207,13 @@ const ContactSection = () => {
             ) : (
               <div className="text-center py-10 animate-in fade-in zoom-in duration-500">
                 <div className="w-24 h-24 bg-brand/10 text-brand rounded-full flex items-center justify-center text-4xl mx-auto mb-6">✅</div>
-                <h3 className="text-3xl font-bold text-slate-900 mb-4">Message Sent!</h3>
-                <p className="text-slate-600 mb-8 leading-relaxed font-medium">Thank you, <span className="font-bold text-slate-900">{formData.name}</span>. Your request has been sent to our desk. We'll be in touch shortly.</p>
+                <h3 className="text-3xl font-bold text-slate-900 mb-4 tracking-tighter uppercase">Request Sent</h3>
+                <p className="text-slate-600 mb-8 leading-relaxed font-medium">Thank you, <span className="font-bold text-slate-900">{formData.name}</span>. Your request has been sent to our Lever Street desk.</p>
                 <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-left space-y-3 mb-8 text-sm">
                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest border-b border-slate-200 pb-2 mb-2">Booking Summary</p>
                    <p><span className="text-slate-500">Name:</span> <span className="font-bold">{formData.name}</span></p>
                    <p><span className="text-slate-500">Service:</span> <span className="font-bold">{formData.treatment}</span></p>
-                   <p><span className="text-slate-500">Status:</span> <span className="text-brand font-bold uppercase tracking-widest text-[10px]">Transmitted to Desk</span></p>
+                   <p><span className="text-slate-500">Status:</span> <span className="text-brand font-bold uppercase tracking-widest text-[10px]">Transmitted to HQ</span></p>
                 </div>
                 <button onClick={() => setIsSubmitted(false)} className="text-brand font-bold text-sm hover:underline transition-all">← Start New Request</button>
               </div>
@@ -246,14 +254,14 @@ const App = () => {
               <div className="relative max-w-7xl mx-auto px-4 w-full">
                 <div className="max-w-4xl">
                   <div className="flex items-center space-x-3 mb-8">
-                     <span className="bg-brand text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-tighter shadow-lg shadow-brand/20">Official Partner</span>
-                     <span className="text-slate-400 text-xs font-bold tracking-widest uppercase">Harley Street Excellence</span>
+                     <span className="bg-brand text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-tighter shadow-lg shadow-brand/20">Official HQ: EC1V</span>
+                     <span className="text-slate-400 text-xs font-bold tracking-widest uppercase tracking-[0.2em]">Lever Street Excellence</span>
                   </div>
-                  <h1 className="text-6xl md:text-8xl font-black text-white mb-10 leading-[0.95] tracking-tighter">
-                    Defining the Future of <span className="text-brand italic font-light">Your Smile.</span>
+                  <h1 className="text-6xl md:text-8xl font-black text-white mb-10 leading-[0.95] tracking-tighter uppercase">
+                    Excellence in <br/> <span className="text-brand italic font-light lowercase">Every Smile.</span>
                   </h1>
                   <p className="text-xl md:text-2xl text-slate-300 mb-12 max-w-2xl leading-relaxed font-medium">
-                    The London Dental Centre provides bespoke clinical care in a luxury Harley Street environment.
+                    The London Dental Centre provides bespoke clinical care in our state-of-the-art facility at 109 Lever Street.
                   </p>
                   <div className="flex flex-wrap gap-5">
                     <button onClick={() => setCurrentView(PageView.CONTACT)} className="bg-white text-slate-950 px-10 py-5 rounded-2xl text-lg font-bold hover:bg-brand-light transition-all shadow-2xl active:scale-95">
@@ -264,11 +272,6 @@ const App = () => {
                     </button>
                   </div>
                 </div>
-              </div>
-              <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce hidden md:block">
-                 <div className="w-6 h-10 border-2 border-white/20 rounded-full flex justify-center pt-2">
-                    <div className="w-1 h-2 bg-white rounded-full"></div>
-                 </div>
               </div>
             </section>
 
@@ -304,8 +307,8 @@ const App = () => {
           <section className="pt-40 pb-32 px-4 bg-white min-h-screen">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-20">
-                 <h2 className="text-5xl md:text-7xl font-black mb-8 tracking-tighter">Clinical Excellence.</h2>
-                 <p className="text-xl text-slate-500 max-w-2xl mx-auto mb-12">Select a category below to browse our range of specialist dental care.</p>
+                 <h2 className="text-5xl md:text-7xl font-black mb-8 tracking-tighter uppercase">Clinical Mastery.</h2>
+                 <p className="text-xl text-slate-500 max-w-2xl mx-auto mb-12 font-medium">Select a category below to browse our range of specialist dental care.</p>
                  
                  <div className="flex flex-wrap justify-center gap-3">
                     {categories.map(cat => (
@@ -322,30 +325,14 @@ const App = () => {
 
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {filteredTreatments.map(t => (
-                  <div key={t.id} className="bg-slate-50 p-10 rounded-[3rem] flex flex-col hover:bg-white hover:shadow-2xl transition-all duration-500 group">
+                  <div key={t.id} className="bg-slate-50 p-10 rounded-[3rem] flex flex-col hover:bg-white hover:shadow-2xl transition-all duration-500 group border border-transparent hover:border-slate-100">
                     <div className="flex justify-between items-start mb-10">
                        <div className="text-5xl group-hover:scale-110 transition-transform">{t.icon}</div>
                        <div className="bg-white px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.15em] text-slate-400 shadow-sm">{t.category}</div>
                     </div>
-                    <h3 className="text-2xl font-black mb-4 text-slate-900">{t.title}</h3>
+                    <h3 className="text-2xl font-black mb-4 text-slate-900 uppercase tracking-tight">{t.title}</h3>
                     <p className="text-slate-500 text-sm leading-relaxed mb-8 flex-grow">{t.desc}</p>
-                    
-                    <div className="space-y-3 mb-8">
-                       {t.features.map((f, i) => (
-                         <div key={i} className="flex items-center text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                           <span className="w-1 h-1 bg-brand rounded-full mr-3"></span>
-                           {f}
-                         </div>
-                       ))}
-                    </div>
-
-                    <div className="pt-8 border-t border-slate-200 flex items-center justify-between">
-                       <div>
-                          <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Fees From</p>
-                          <p className="text-xl font-black text-brand-dark">{t.price}</p>
-                       </div>
-                       <button onClick={() => setCurrentView(PageView.CONTACT)} className="bg-slate-900 text-white px-6 py-3 rounded-xl font-bold text-xs hover:bg-brand transition-colors">Enquire</button>
-                    </div>
+                    <button onClick={() => setCurrentView(PageView.CONTACT)} className="bg-slate-900 text-white px-6 py-4 rounded-2xl font-bold text-xs hover:bg-brand transition-colors uppercase tracking-widest">Book Consultation</button>
                   </div>
                 ))}
               </div>
@@ -357,28 +344,23 @@ const App = () => {
           <section className="pt-40 pb-32 px-4 bg-slate-50 min-h-screen">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-16">
-                 <h2 className="text-5xl font-black mb-6 tracking-tighter">Investment Guide.</h2>
-                 <p className="text-slate-500 font-medium">Transparent pricing and flexible financing options for all patients.</p>
+                 <h2 className="text-5xl font-black mb-6 tracking-tighter uppercase">Investment Guide.</h2>
+                 <p className="text-slate-500 font-medium italic">Transparent fees for premium dental outcomes.</p>
               </div>
 
-              <div className="bg-white rounded-[4rem] shadow-sm border border-slate-100 overflow-hidden">
+              <div className="bg-white rounded-[2rem] overflow-hidden shadow-xl border border-slate-100">
                 <table className="w-full text-left border-collapse">
                   <thead className="bg-slate-950 text-white">
                     <tr>
                       <th className="px-10 py-8 font-black uppercase tracking-widest text-[10px]">Procedure</th>
-                      <th className="px-10 py-8 text-right font-black uppercase tracking-widest text-[10px]">Private Fee</th>
+                      <th className="px-10 py-8 text-right font-black uppercase tracking-widest text-[10px]">Fee From</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-100">
                     {TREATMENTS.map(t => (
                       <tr key={t.id} className="hover:bg-brand/5 transition-colors group">
-                        <td className="px-10 py-7">
-                           <p className="font-bold text-slate-900">{t.title}</p>
-                           <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest group-hover:text-brand">{t.category}</p>
-                        </td>
-                        <td className="px-10 py-7 text-right">
-                           <p className="font-black text-brand-dark text-lg">{t.price}</p>
-                        </td>
+                        <td className="px-10 py-7 font-bold text-slate-900">{t.title}</td>
+                        <td className="px-10 py-7 text-right font-black text-brand-dark text-lg">{t.price}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -393,10 +375,15 @@ const App = () => {
             <div className="max-w-7xl mx-auto">
                <div className="grid lg:grid-cols-2 gap-24 items-center mb-32">
                   <div className="space-y-10">
-                     <h2 className="text-6xl font-black text-slate-950 leading-[0.95] tracking-tighter">Clinical Heritage. <br/> <span className="text-brand font-light italic">Digital Innovation.</span></h2>
+                     <h2 className="text-6xl font-black text-slate-950 leading-[0.95] tracking-tighter uppercase">Lever Street. <br/> <span className="text-brand font-light italic lowercase">the new standard.</span></h2>
                      <p className="text-xl text-slate-600 leading-relaxed font-medium">
-                        Our state-of-the-art clinic features intra-oral scanners, 3D CBCT imaging, and a dedicated surgical suite.
+                        Centrally located at 109 Lever Street, London, EC1V 3RQ, our clinic combines clinical mastery with advanced patient technology.
                      </p>
+                     <div className="p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100">
+                        <p className="text-[10px] font-black uppercase text-slate-400 tracking-widest mb-2">Main Reception</p>
+                        <p className="text-3xl font-black text-slate-900">020 7123 4567</p>
+                        <p className="mt-2 text-xs font-bold text-slate-400 uppercase tracking-widest">109 Lever Street, London, EC1V 3RQ</p>
+                     </div>
                   </div>
                   <div className="relative">
                      <div className="absolute -inset-4 bg-brand/5 rounded-[4rem] -rotate-3 -z-10"></div>
@@ -407,11 +394,7 @@ const App = () => {
           </section>
         );
       case PageView.CONTACT:
-        return (
-          <div className="pt-20">
-            <ContactSection />
-          </div>
-        );
+        return <div className="pt-20"><ContactSection /></div>;
       default:
         return null;
     }
@@ -432,31 +415,38 @@ const App = () => {
                   <div className="h-20 w-auto mr-4 flex items-center justify-center bg-white p-2 rounded-2xl">
                     <img src="logo.png" alt="London Dental Centre Logo" className="h-full w-auto object-contain" />
                   </div>
-                  <h3 className="text-2xl font-black tracking-tighter uppercase">LONDON DENTAL CENTRE</h3>
+                  <h3 className="text-2xl font-black tracking-tighter uppercase">THE LONDON DENTAL CENTRE</h3>
                 </div>
-                <p className="text-slate-400 text-lg leading-relaxed max-w-md italic">
-                  "Defining the standard for dental care in London. Clinical precision meets patient comfort."
+                <p className="text-slate-400 text-lg leading-relaxed max-w-md italic opacity-80">
+                  "Defining the standard for dental care in London at 109 Lever Street, London, EC1V 3RQ."
                 </p>
+                <div className="flex gap-4">
+                   <div className="px-6 py-4 bg-white/5 rounded-2xl border border-white/10">
+                      <p className="text-[10px] font-black uppercase text-brand tracking-widest mb-1">Direct Dial</p>
+                      <p className="font-bold">020 7123 4567</p>
+                   </div>
+                </div>
              </div>
              <div>
-                <h4 className="text-xs font-black uppercase tracking-[0.2em] mb-8 text-brand">Quick Links</h4>
+                <h4 className="text-xs font-black uppercase tracking-[0.2em] mb-8 text-brand">Connect</h4>
                 <ul className="space-y-5 text-sm font-bold text-slate-400">
                    <li><button onClick={() => setCurrentView(PageView.TREATMENTS)} className="hover:text-white transition-colors">Treatments</button></li>
                    <li><button onClick={() => setCurrentView(PageView.ABOUT)} className="hover:text-white transition-colors">About Us</button></li>
-                   <li><button onClick={() => setCurrentView(PageView.PRICES)} className="hover:text-white transition-colors">Fees</button></li>
+                   <li><button onClick={() => setCurrentView(PageView.PRICES)} className="hover:text-white transition-colors">Fee Guide</button></li>
                    <li><button onClick={() => setCurrentView(PageView.CONTACT)} className="hover:text-white transition-colors">Emergency</button></li>
                 </ul>
              </div>
              <div>
-                <h4 className="text-xs font-black uppercase tracking-[0.2em] mb-8 text-brand">Accreditation</h4>
-                <div className="space-y-4 text-[10px] font-black uppercase tracking-[0.15em] text-slate-500">
-                   <p className="border-l-2 border-brand/20 pl-4">GDC Registered Practice</p>
-                   <p className="border-l-2 border-brand/20 pl-4">CQC Inspected: Outstanding</p>
+                <h4 className="text-xs font-black uppercase tracking-[0.2em] mb-8 text-brand">Location</h4>
+                <div className="text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 leading-relaxed">
+                   <p className="text-white text-xs mb-2">109 Lever Street</p>
+                   <p>London, EC1V 3RQ</p>
+                   <p className="mt-4 border-l-2 border-brand/20 pl-4">GDC Registered Practice</p>
                 </div>
              </div>
           </div>
           <div className="pt-12 border-t border-white/5 text-[10px] font-black uppercase tracking-widest text-slate-500">
-             <p>&copy; 2024 London Dental Centre. Harley Street Clinic. All Rights Reserved.</p>
+             <p>&copy; 2024 The London Dental Centre. 109 Lever Street, London, EC1V 3RQ. All Rights Reserved.</p>
           </div>
         </div>
       </footer>
