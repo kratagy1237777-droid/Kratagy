@@ -4,7 +4,7 @@ export interface Treatment {
   title: string;
   shortDesc: string;
   icon: string;
-  category: 'General' | 'Cosmetic' | 'Specialist' | 'Restorative' | 'Orthodontics' | 'Surgical' | 'Facial';
+  category: 'Cosmetic' | 'General' | 'Specialist';
   benefits: string[];
   priceFrom: string;
 }
