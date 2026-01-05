@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { PageView } from '../types';
+import { PageView } from '../types.ts';
 
 interface HeroProps {
   onCtaClick: () => void;

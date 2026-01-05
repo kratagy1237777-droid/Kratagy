@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { PageView } from '../types';
+import { PageView } from '../types.ts';
 
 interface NavigationProps {
   currentView: PageView;
@@ -59,7 +59,6 @@ const Navigation: React.FC<NavigationProps> = ({ currentView, setView }) => {
           </div>
           
           <div className="md:hidden">
-            {/* Mobile menu icon would go here - keeping it simple for blueprint */}
             <button 
                onClick={() => setView(PageView.BLUEPRINT)}
                className="text-sky-700 text-sm font-bold border border-sky-700 px-3 py-1 rounded"

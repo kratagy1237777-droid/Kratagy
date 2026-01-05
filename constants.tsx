@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Treatment, TeamMember, Review } from './types';
+import { Treatment, TeamMember, Review } from './types.ts';
 
 export const COLORS = {
   primary: '#0F4C75',

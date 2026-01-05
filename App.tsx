@@ -1,12 +1,12 @@
 
 import React, { useState } from 'react';
-import { PageView } from './types';
-import { TREATMENTS, TEAM, REVIEWS } from './constants';
-import Navigation from './components/Navigation';
-import Hero from './components/Hero';
-import BlueprintView from './components/BlueprintView';
-import Footer from './components/Footer';
-import ContactSection from './components/ContactSection';
+import { PageView } from './types.ts';
+import { TREATMENTS, TEAM, REVIEWS } from './constants.tsx';
+import Navigation from './components/Navigation.tsx';
+import Hero from './components/Hero.tsx';
+import BlueprintView from './components/BlueprintView.tsx';
+import Footer from './components/Footer.tsx';
+import ContactSection from './components/ContactSection.tsx';
 
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<PageView>(PageView.HOME);

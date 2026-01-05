@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { PageView } from '../types';
+import { PageView } from '../types.ts';
 
 interface FooterProps {
   setView: (view: PageView) => void;
@@ -22,7 +22,6 @@ const Footer: React.FC<FooterProps> = ({ setView }) => {
               Providing world-class dentistry in the heart of London. Our practice is dedicated to excellence, innovation, and patient-centered care.
             </p>
             <div className="flex space-x-4">
-              {/* Social icons placeholder */}
               <div className="w-8 h-8 rounded-full bg-slate-800 hover:bg-sky-600 transition-colors cursor-pointer"></div>
               <div className="w-8 h-8 rounded-full bg-slate-800 hover:bg-sky-600 transition-colors cursor-pointer"></div>
               <div className="w-8 h-8 rounded-full bg-slate-800 hover:bg-sky-600 transition-colors cursor-pointer"></div>

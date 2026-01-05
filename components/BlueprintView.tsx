@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { COLORS, SEO_KEYWORDS } from '../constants';
+import { COLORS, SEO_KEYWORDS } from '../constants.tsx';
 
 const BlueprintView: React.FC = () => {
   return (
